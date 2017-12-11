@@ -1,7 +1,11 @@
-import lstm
+import lstm, os, sys
 
 #Step 1 Load Data
-X_train, y_train, X_test, y_test = lstm.load_data('sp500.csv', 50, True)
+
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(CURRENT_DIR) + "/tools/")
+
+X_train, y_train, X_test, y_test = lstm.load_data(CURRENT_DIR + '\\btc.csv', 50, True)
 
 #Step 2 Build Model
 layers = [1, 50, 100, 1] # input dimension LSTM, output dimension LSTM, secound LST output dimension, output dimension dense
